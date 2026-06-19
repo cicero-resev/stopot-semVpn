@@ -1,0 +1,317 @@
+:root{
+  --bg-1:#1e0a3c;
+  --bg-2:#3b0764;
+  --accent:#ffd23f;
+  --accent-2:#ff6b6b;
+  --green:#36d399;
+  --red:#ff5c5c;
+  --card:#ffffff;
+  --text-dark:#241546;
+  --radius:16px;
+  font-family:'Trebuchet MS', 'Segoe UI', sans-serif;
+}
+
+*{box-sizing:border-box;}
+
+body{
+  margin:0;
+  min-height:100vh;
+  background:linear-gradient(135deg,var(--bg-1),var(--bg-2));
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.container{
+  width:100%;
+  max-width:900px;
+  padding:24px 16px 60px;
+}
+
+h1,h2,h3{margin:0 0 8px;}
+
+.logo{
+  text-align:center;
+  margin:24px 0 8px;
+}
+.logo .stop{
+  font-size:3rem;
+  font-weight:900;
+  color:var(--accent);
+  text-shadow:3px 3px 0 var(--accent-2);
+  letter-spacing:2px;
+}
+.logo .sub{
+  font-size:1rem;
+  opacity:.85;
+}
+
+.card{
+  background:var(--card);
+  color:var(--text-dark);
+  border-radius:var(--radius);
+  padding:24px;
+  box-shadow:0 12px 30px rgba(0,0,0,.25);
+  margin-bottom:20px;
+}
+
+.row{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+input[type=text]{
+  flex:1;
+  padding:14px 16px;
+  border-radius:10px;
+  border:2px solid #ddd;
+  font-size:16px; /* evita zoom automático ao focar em iOS */
+  outline:none;
+  transition:border-color .15s;
+  width:100%;
+}
+input[type=text]:focus{border-color:var(--accent-2);}
+
+button{
+  cursor:pointer;
+  border:none;
+  border-radius:10px;
+  padding:14px 22px;
+  font-size:1rem;
+  font-weight:700;
+  transition:transform .1s, opacity .1s;
+}
+button:active{transform:scale(.97);}
+button:disabled{opacity:.5;cursor:not-allowed;}
+
+.btn-primary{background:var(--accent-2);color:#fff;}
+.btn-primary:hover{opacity:.9;}
+
+.btn-secondary{background:#eee;color:var(--text-dark);}
+.btn-secondary:hover{opacity:.9;}
+
+.btn-green{background:var(--green);color:#06281c;}
+.btn-red{background:var(--red);color:#fff;}
+.btn-gold{background:var(--accent);color:#3b2400;}
+
+.btn-block{width:100%;}
+
+.muted{opacity:.7;font-size:.9rem;}
+
+.players-list{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.players-list li{
+  background:#f4f2fb;
+  border-radius:10px;
+  padding:10px 14px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-weight:600;
+}
+.players-list li .badge{
+  font-size:.7rem;
+  background:var(--accent);
+  color:#3b2400;
+  padding:2px 8px;
+  border-radius:20px;
+  font-weight:700;
+}
+
+.code-display{
+  font-size:2rem;
+  font-weight:900;
+  letter-spacing:6px;
+  text-align:center;
+  background:#f4f2fb;
+  border-radius:10px;
+  padding:12px;
+  margin:12px 0;
+  color:var(--bg-2);
+}
+
+/* ---- Game screen ---- */
+.top-bar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:16px;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.letter-badge{
+  width:64px;
+  height:64px;
+  border-radius:50%;
+  background:var(--accent);
+  color:#3b2400;
+  font-size:2rem;
+  font-weight:900;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 6px 14px rgba(0,0,0,.3);
+}
+
+.timer{
+  font-size:1.6rem;
+  font-weight:900;
+  background:rgba(255,255,255,.15);
+  padding:8px 18px;
+  border-radius:30px;
+}
+.timer.low{color:var(--red);}
+
+.categories-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:14px;
+}
+
+.category-field label{
+  display:block;
+  font-weight:700;
+  margin-bottom:6px;
+  color:var(--bg-2);
+}
+
+.status-banner{
+  text-align:center;
+  font-weight:700;
+  padding:10px;
+  border-radius:10px;
+  background:#fff3cd;
+  color:#6b5200;
+  margin-bottom:14px;
+}
+
+/* ---- Voting ---- */
+.vote-block{
+  border:2px solid #eee;
+  border-radius:12px;
+  padding:14px;
+  margin-bottom:14px;
+}
+.vote-block h4{
+  margin:0 0 10px;
+  color:var(--bg-2);
+}
+.vote-answer-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:8px 10px;
+  border-radius:8px;
+  background:#f7f6fb;
+  margin-bottom:8px;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.vote-answer-row.invalid{
+  background:#ffe3e3;
+  text-decoration:line-through;
+  opacity:.7;
+}
+.vote-answer-row.auto-invalid{
+  background:#ffe3e3;
+  opacity:.6;
+}
+.answer-text{font-weight:700;flex:1;}
+.vote-count{font-size:.85rem;opacity:.8;}
+.vote-btn{
+  background:var(--red);
+  color:#fff;
+  padding:8px 14px;
+  font-size:.85rem;
+}
+.vote-btn.voted{background:#a30000;}
+
+/* ---- Scoreboard ---- */
+table.scores{
+  width:100%;
+  border-collapse:collapse;
+}
+table.scores th, table.scores td{
+  padding:10px;
+  text-align:left;
+  border-bottom:1px solid #eee;
+}
+table.scores tr:first-child td{font-weight:900;color:var(--bg-2);}
+
+.footer-actions{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin-top:16px;
+}
+
+.hidden{display:none !important;}
+
+@media (max-width:480px){
+  .container{padding:14px 10px 50px;}
+
+  .logo{margin:14px 0 4px;}
+  .logo .stop{font-size:2.2rem;letter-spacing:1px;}
+  .logo .sub{font-size:.85rem;}
+
+  .card{padding:16px;border-radius:12px;}
+
+  h2{font-size:1.2rem;}
+  h3{font-size:1.05rem;}
+
+  .code-display{font-size:1.6rem;letter-spacing:4px;padding:10px;}
+
+  /* Linha de "entrar em sala" empilha em telas pequenas */
+  .row{flex-direction:column;}
+  .row button{width:100%;}
+
+  button{padding:13px 16px;font-size:.95rem;}
+
+  /* Barra superior do jogo: letra + timer + STOP em coluna organizada */
+  .top-bar{
+    flex-direction:row;
+    justify-content:space-between;
+    gap:8px;
+  }
+  .letter-badge{width:52px;height:52px;font-size:1.5rem;flex-shrink:0;}
+  .timer{font-size:1.2rem;padding:6px 12px;}
+  #stopBtn{padding:12px 14px;font-size:.9rem;flex-shrink:0;}
+
+  /* Categorias sempre em coluna única no celular */
+  .categories-grid{grid-template-columns:1fr;gap:10px;}
+  .category-field label{font-size:.9rem;}
+
+  .status-banner{font-size:.9rem;padding:8px;}
+
+  /* Votação: empilha resposta e botão para facilitar o toque */
+  .vote-answer-row{flex-direction:column;align-items:stretch;}
+  .vote-answer-row .vote-btn{width:100%;}
+  .answer-text{font-size:.95rem;}
+  .vote-count{font-size:.8rem;}
+
+  /* Placar com fonte menor e scroll horizontal se necessário */
+  table.scores{font-size:.85rem;}
+  table.scores th, table.scores td{padding:7px;}
+
+  .footer-actions{flex-direction:column;}
+  .footer-actions button, .footer-actions a button{width:100%;}
+
+  .players-list li{padding:9px 12px;font-size:.9rem;}
+}
+
+/* Telas bem pequenas (ex: iPhone SE) */
+@media (max-width:360px){
+  .logo .stop{font-size:1.8rem;}
+  .letter-badge{width:46px;height:46px;font-size:1.3rem;}
+  .timer{font-size:1.05rem;padding:5px 10px;}
+  #stopBtn{font-size:.8rem;padding:10px 12px;}
+}

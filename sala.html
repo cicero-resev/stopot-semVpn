@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sala - StopotS Clone</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+
+  <div class="top-bar">
+    <div class="logo" style="margin:0;">
+      <div class="stop" style="font-size:1.8rem;">STOP!</div>
+    </div>
+    <div class="code-display" id="roomCodeDisplay" style="font-size:1.3rem;padding:8px 16px;margin:0;">----</div>
+  </div>
+
+  <!-- ===================== TELA DE LOBBY (esperando jogadores) ===================== -->
+  <section id="screen-lobby">
+    <div class="card">
+      <h2>Jogadores na sala</h2>
+      <ul class="players-list" id="playersList"></ul>
+    </div>
+    <div class="card" id="hostControls">
+      <h3>Configurações (anfitrião)</h3>
+      <label class="muted">Número de rodadas</label>
+      <div class="row" style="margin-bottom:12px;">
+        <input type="text" id="roundsInput" value="5" style="max-width:80px;">
+      </div>
+      <button class="btn-primary btn-block" id="startGameBtn">Iniciar partida</button>
+      <p class="muted" id="needPlayersMsg">É preciso pelo menos 2 jogadores para iniciar.</p>
+    </div>
+    <div class="card" id="waitingNonHost">
+      <p>Aguardando o anfitrião iniciar a partida...</p>
+    </div>
+  </section>
+
+  <!-- ===================== TELA DE JOGO (preenchendo categorias) ===================== -->
+  <section id="screen-playing" class="hidden">
+    <div class="status-banner" id="roundInfo">Rodada 1 de 5</div>
+    <div class="top-bar">
+      <div class="letter-badge" id="currentLetter">A</div>
+      <div class="timer" id="timer">1:00</div>
+      <button class="btn-gold" id="stopBtn">STOP!</button>
+    </div>
+    <div class="card">
+      <div class="categories-grid" id="categoriesGrid"></div>
+    </div>
+  </section>
+
+  <!-- ===================== TELA DE VOTAÇÃO ===================== -->
+  <section id="screen-voting" class="hidden">
+    <div class="status-banner">Votação - denuncie respostas inválidas</div>
+    <div class="top-bar">
+      <div></div>
+      <div class="timer" id="voteTimer">0:45</div>
+    </div>
+    <div class="card" id="votingArea"></div>
+    <button class="btn-primary btn-block" id="finishVotingBtn">Encerrar votação (anfitrião)</button>
+  </section>
+
+  <!-- ===================== TELA DE PLACAR DA RODADA ===================== -->
+  <section id="screen-scores" class="hidden">
+    <div class="card">
+      <h2 id="scoresTitle">Placar da rodada</h2>
+      <table class="scores" id="scoresTable"></table>
+    </div>
+    <button class="btn-primary btn-block" id="nextRoundBtn">Próxima rodada (anfitrião)</button>
+  </section>
+
+  <!-- ===================== TELA FINAL ===================== -->
+  <section id="screen-gameover" class="hidden">
+    <div class="card">
+      <h2>🏆 Fim de jogo!</h2>
+      <table class="scores" id="finalScoresTable"></table>
+    </div>
+    <div class="footer-actions">
+      <a href="index.html"><button class="btn-secondary">Voltar ao início</button></a>
+      <button class="btn-primary" id="playAgainBtn">Jogar novamente (anfitrião)</button>
+    </div>
+  </section>
+
+  <p id="errorMsg" class="muted" style="color:#ffb3b3;text-align:center;"></p>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+<script src="config.js"></script>
+<script src="utils.js"></script>
+<script src="game.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StopotS Clone - Jogo de Stop Online</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+
+  <div class="logo">
+    <div class="stop">STOP!</div>
+    <div class="sub">Adedanha / Adedonha online com amigos</div>
+  </div>
+
+  <div class="card">
+    <h2>Seu nome</h2>
+    <input type="text" id="playerName" placeholder="Como você quer ser chamado?" maxlength="20">
+  </div>
+
+  <div class="card">
+    <h2>Criar uma sala</h2>
+    <p class="muted">Crie uma nova sala e compartilhe o código com seus amigos.</p>
+    <button class="btn-primary btn-block" id="createRoomBtn">Criar sala</button>
+  </div>
+
+  <div class="card">
+    <h2>Entrar em uma sala</h2>
+    <p class="muted">Digite o código de 4 letras que o anfitrião compartilhou.</p>
+    <div class="row">
+      <input type="text" id="roomCodeInput" placeholder="Ex: ABCD" maxlength="4">
+      <button class="btn-secondary" id="joinRoomBtn">Entrar</button>
+    </div>
+  </div>
+
+  <p id="errorMsg" class="muted" style="color:#ffb3b3;text-align:center;"></p>
+
+  <p class="muted" style="text-align:center;margin-top:30px;">
+    Inspirado no clássico jogo "Stop" (Adedanha/Adedonha) e no site
+    <strong>stopots.com</strong>. Projeto independente, sem fins comerciais.
+  </p>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+<script src="config.js"></script>
+<script src="utils.js"></script>
+<script src="lobby.js"></script>
+</body>
+</html>
