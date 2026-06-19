@@ -6,12 +6,12 @@
 const CATEGORIES = [
   "Nome",
   "Animal",
-  "Fruta/Verdura",
-  "País/Cidade",
+  "Fruta ou Verdura",  
+  "País ou Cidade",    
   "Objeto",
   "Cor",
   "Profissão",
-  "Filme/Série"
+  "Filme ou Série"     // Alterado de / para ou
 ];
 
 // Letras usadas no sorteio (exclui K, W, Y, comuns de se excluir na
@@ -19,7 +19,7 @@ const CATEGORIES = [
 const LETTERS = "ABCDEFGHIJLMNOPQRSTUVZ".split("");
 
 // Duração padrão da rodada (segundos) e da votação (segundos)
-const ROUND_SECONDS = 60;
+const ROUND_SECONDS = 150;
 const VOTE_SECONDS = 45;
 const TOTAL_ROUNDS = 5;
 
